@@ -6,11 +6,39 @@ editor: visual
 
 # Anna (234552)
 
+helloooooooo
+
+```{r}
+2+2
+```
+
+```{r}
+4+4
+```
+
 # Ausrine (253540)
 
+First sentence
+
+```{r}
+
+```
 # Maria (263494)
 
+First test
+
+```{r}
+x <- c(2,3)
+```
+
 # Giulia (263511)
+
+ciaoo group
+
+```{r}
+y<-3+2
+y
+```
 
 # Matteo (263497)
 
