@@ -1,0 +1,60 @@
+---
+title: "Micro report - Laboratory 07 PCA tidyverse style via git"
+format: html
+editor: visual
+author: "Group 5"
+---
+
+Group members: - Maria Seimeni (s263494) - Ausrine Butrimaite (s253540) - Anna Karolina Kulesza (s234552) - Giulia Macaluso (s263511) - Matteo D’Angelo (s263497)
+
+### Aim
+
+With the use of broom package it is possible to create a PCA in tidyverse. This document covers that investigation on previously analysed gravier data by collaboration of a team via git.
+
+### Load libraries
+
+We only import tidyverse and broom. Including cowplot for the plotting.
+
+```{r}
+library('tidyverse')
+library('broom')
+library('cowplot')
+```
+
+### Load data
+
+```{r}
+raw_dir <- "data/_raw/"
+data_file <- "gravier.RData"
+data_loc <- "https://github.com/ramhiser/datamicroarray/raw/master/data/"
+
+if( !dir.exists(raw_dir) ){
+  dir.create(path = raw_dir)
+}
+if( !file.exists(str_c(raw_dir, data_file)) ){
+  download.file(
+    url = str_c(data_loc, data_file),
+    destfile = str_c(raw_dir, data_file))
+}
+load(file = str_c(raw_dir, data_file))
+```
+
+### Data preparation
+
+-----------TASK-2------------
+
+here do data preparation with comments;)) - so choose only numeric and etc, check if all looks good
+
+### Analysis
+
+-----------TASK-3------------
+
+here do the 'look at the data in PC coordinates - part 1 (scatter plot graph) with comments' ;)) - check how much of data preparation is done for u and what else u need
+
+-----------TASK-4------------
+
+here do the 'look at the data in PC coordinates - part 2 (rotation matrix graph) with comments' ;)) - check how much of data preparation is done for u and what else u need
+
+-----------TASK-5------------
+
+here do the variance explained with comments;))
