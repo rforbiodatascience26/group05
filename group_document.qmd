@@ -31,12 +31,19 @@ Lalala
 ```{r}
 
 ```
+
 # Maria (263494)
 
 First test
 
 ```{r}
 x <- c(2,3)
+```
+
+#### New feature
+
+```{r}
+y <- c(1,2) 
 ```
 
 # Giulia (263511)
