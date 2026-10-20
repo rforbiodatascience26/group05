@@ -82,6 +82,37 @@ here do the 'look at the data in PC coordinates - part 1 (scatter plot graph) wi
 
 here do the 'look at the data in PC coordinates - part 2 (rotation matrix graph) with comments' ;)) - check how much of data preparation is done for u and what else u need
 
------------TASK-5------------
+-----------TASK-5. Variance explained by each PC------------
 
-here do the variance explained with comments;))
+5.1. Creating a table which shows how much of the total variation in gene expression is explained by each principal component, which helps us to identify which component capture the most information.
+
+```{r}
+
+pca_fit %>%
+  tidy(matrix = "eigenvalues")
+```
+
+5.2. Creating a PC graph
+
+As this dataset contains many genes, it was chosen to display the first 10 principal components.
+
+```{r}
+pca_fit %>%
+  tidy(matrix = "eigenvalues") %>%
+  filter(PC <= 10) %>%
+  ggplot(aes(x = PC, y = percent)) +
+  geom_col(fill = "#56B4E9", alpha = 0.8) +
+  scale_x_continuous(breaks = 1:10) +
+  scale_y_continuous(
+    labels = scales::percent_format(),
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+  labs(
+    title = "Variance Explained by Principal Components",
+    x = "PC (Principal Component)",
+    y = "Percentage"
+  ) +
+  theme_minimal()
+```
+
+Given graph shows how much of the total variation in gene expression is explained by each of the first ten principal components. PC1explains the largest proportion of variation in gene expression (9%) while PC2 captures the second largest amount of variation (7%). Together, these two components capture approximately 16% of differences in gene expression between patients.
