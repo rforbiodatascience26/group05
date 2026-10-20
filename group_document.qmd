@@ -16,6 +16,14 @@ helloooooooo
 4+4
 ```
 
+## New analysis
+
+rrrrrrr
+```{r}
+2-1
+```
+
+
 # Ausrine (253540)
 
 First sentence
@@ -40,6 +48,12 @@ First test
 x <- c(2,3)
 ```
 
+#### New feature
+
+```{r}
+y <- c(1,2) 
+```
+
 # Giulia (263511)
 
 ciaoo group
@@ -47,6 +61,14 @@ ciaoo group
 ```{r}
 y<-3+2
 y
+```
+
+## New feature
+
+good work everybody! :)
+
+```{r}
+9/3
 ```
 
 # Matteo (263497)
