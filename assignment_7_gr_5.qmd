@@ -74,9 +74,28 @@ pca_fit <- x %>%
 
 ### Analysis
 
------------TASK-3------------
+#### Combine data and outcome
 
-here do the 'look at the data in PC coordinates - part 1 (scatter plot graph) with comments' ;)) - check how much of data preparation is done for u and what else u need
+The PCA was run on the numeric variables only, so the `good`/`poor` labels stored in `gravier$y` are not part of `pca_fit`. We add them back as an `outcome` column so that the PC coordinates can be colored by outcome in the plot.
+
+```{r}
+df <- gravier$x %>% mutate(outcome = gravier$y)
+```
+
+#### Look at the data in PC coordinates
+
+To plot the data in PC coordinates, we combine the PC coordinates with the original dataset using `augment()` from broom. This lets us color the points by `outcome`, which was left out of the PCA. The coordinates are stored in the columns `.fittedPC1`, `.fittedPC2`
+
+```{r}
+pca_fit %>%
+  augment(df) %>%
+  ggplot(aes(.fittedPC1, .fittedPC2, color = outcome)) + 
+  geom_point(size = 1.5) +
+  scale_color_manual(
+    values = c(good = "#0072B2", poor = "#D55E00")
+  ) +
+  theme_half_open(12) + background_grid()
+```
 
 -----------TASK-4------------
 
