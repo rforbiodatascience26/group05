@@ -48,6 +48,12 @@ First test
 x <- c(2,3)
 ```
 
+#### New feature
+
+```{r}
+y <- c(1,2) 
+```
+
 # Giulia (263511)
 
 ciaoo group
