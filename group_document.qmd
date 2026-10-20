@@ -5,7 +5,9 @@ editor: visual
 ---
 
 # Anna (234552)
+
 helloooooooo
+
 ```{r}
 2+2
 ```
@@ -13,7 +15,6 @@ helloooooooo
 ```{r}
 4+4
 ```
-
 
 # Ausrine (253540)
 
