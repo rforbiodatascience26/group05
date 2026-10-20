@@ -1,6 +1,5 @@
 ---
 title: "s263494"
-author: "Maria Seimeni"
 format: html
 editor: visual
 ---
