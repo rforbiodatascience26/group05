@@ -1,8 +1,10 @@
 ---
 title: "Micro report - Laboratory 07 PCA tidyverse style via git"
-format: html
-editor: visual
 author: "Group 5"
+format:
+  html:
+    embed-resources: true
+editor: visual
 ---
 
 Group members: - Maria Seimeni (s263494) - Ausrine Butrimaite (s253540) - Anna Karolina Kulesza (s234552) - Giulia Macaluso (s263511) - Matteo D’Angelo (s263497)
