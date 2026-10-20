@@ -43,9 +43,34 @@ load(file = str_c(raw_dir, data_file))
 
 ### Data preparation
 
------------TASK-2------------
+Handle missing or non-finite values and remove variables with zero or undefined variance before running PCA.
 
-here do data preparation with comments;)) - so choose only numeric and etc, check if all looks good
+```{r}
+# Extract numeric variables
+x <- gravier$x %>%
+  select(where(is.numeric))
+
+# Check dimensions (number of observations and variables)
+dim(x)
+
+# Count missing values
+sum(is.na(x))
+
+# Count non-finite values
+sum(!is.finite(as.matrix(x)))
+
+# Count variables with zero or undefined variance
+variable_sd <- map_dbl(x, ~ sd(.x, na.rm = TRUE))
+sum(!is.finite(variable_sd) | variable_sd == 0)
+```
+
+Since all the results are 0, we can proceed with the PCA
+
+```{r}
+# Principal Component Analysis (PCA) on scaled numeric data
+pca_fit <- x %>%
+  prcomp(scale. = TRUE)
+```
 
 ### Analysis
 
