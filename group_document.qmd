@@ -39,6 +39,7 @@ Lalala
 ```{r}
 
 ```
+
 # Maria (263494)
 
 First test
@@ -54,6 +55,14 @@ ciaoo group
 ```{r}
 y<-3+2
 y
+```
+
+## New feature
+
+good work everybody! :)
+
+```{r}
+9/3
 ```
 
 # Matteo (263497)
