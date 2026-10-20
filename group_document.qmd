@@ -77,3 +77,13 @@ good work everybody! :)
 print("Hello World!")
 # cliche, but it works (maybe)
 ```
+
+## New Feature
+
+bla bla bla feature text bla bla yeah
+
+```{r}
+print("there are monkeys on mars")
+```
+
+science says it
