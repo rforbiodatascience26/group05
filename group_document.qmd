@@ -34,4 +34,11 @@ x <- c(2,3)
 
 # Giulia (263511)
 
+ciaoo group
+
+```{r}
+y<-3+2
+y
+```
+
 # Matteo (263497)
