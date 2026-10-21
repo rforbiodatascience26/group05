@@ -97,9 +97,63 @@ pca_fit %>%
   theme_half_open(12) + background_grid()
 ```
 
------------TASK-4------------
+#### Look at the data in PC coordinates
 
-here do the 'look at the data in PC coordinates - part 2 (rotation matrix graph) with comments' ;)) - check how much of data preparation is done for u and what else u need
+We use `tidy()` from the broom package to extract the rotation matrix from the `pca_fit`.
+
+```{r}
+# extract the rotation matrix  
+pca_fit %>%
+  tidy(matrix = "rotation")
+```
+
+#### Wrangle the data
+
+We use `pivot_wider()` to set the rotation matrix in wide format.
+
+```{r}
+# rotation matrix in wide format
+loadings <- pca_fit %>%
+  tidy(matrix = "rotation") %>%
+  pivot_wider(names_from = "PC", names_prefix = "PC", values_from = "value")
+```
+
+#### Plotting
+
+To make the arrow plot for the original variables, we choose the top 5 genes of PC1 and PC2, as there are many overlaps if we use the total amount of genes (more than 2900) and it's not possible to interpret the plot. The top genes are the genes that contribute most to each PC. Loading values show how much a gene contributes to each PC, and we work with absolute values as both positive and negative loadings influence the shaping of the PC.
+
+```{r}
+# find top genes for PC1 and PC2
+top_PC1 <- loadings %>% 
+  slice_max(abs(PC1), n = 5)
+top_PC2 <- loadings %>%
+  slice_max(abs(PC2), n = 5) 
+# combine into a table
+top_genes_PC <- bind_rows(top_PC1,top_PC2)
+
+# define arrow style for plotting
+arrow_style <- arrow(
+  angle = 20, ends = "first", type = "closed", length = grid::unit(8, "pt")
+)
+# arrow plot
+top_genes_PC |> 
+  ggplot(aes(PC1, PC2)) +
+  geom_segment(xend = 0, yend = 0, arrow = arrow_style) +
+  geom_text_repel(aes(label = column),
+                  color = "#904C2F", size = 3.5) +
+  xlim(-0.05, 0.06) + ylim(-0.05,0.03) +
+  coord_fixed() + 
+  labs(x = "PC1",
+       y = "PC2") +
+  theme_minimal_grid(12)
+
+```
+
+As it was expected, genes g2E02, g7F07, g2F10, g6B12 and g1H04 mainly contribute to PC1, while genes g1int611, g1int556, g1int592, g5D01 and g11E06 contribute to PC2. Genes within each group have arrows with similar direction, indicating a correlation between their expression levels.
+
+In the first plot, it is clear that PC1 and PC2 do not separate patients by outcome, as there is overlap between the data of the two groups.
+
+Overall, the second plot shows which genes contributed more to create the PC1 and PC2. Subsequently, the first plot represents those two PCs and checks if the data variation pattern that they capture is related to patients outcome.
 
 -----------TASK-5. Variance explained by each PC------------
 
