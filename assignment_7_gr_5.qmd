@@ -155,9 +155,9 @@ In the first plot, it is clear that PC1 and PC2 do not separate patients by outc
 
 Overall, the second plot shows which genes contributed more to create the PC1 and PC2. Subsequently, the first plot represents those two PCs and checks if the data variation pattern that they capture is related to patients outcome.
 
------------TASK-5. Variance explained by each PC------------
+#### Variance explained by each PC
 
-5.1. Creating a table which shows how much of the total variation in gene expression is explained by each principal component, which helps us to identify which component capture the most information.
+Creating a table which shows how much of the total variation in gene expression is explained by each principal component, which helps us to identify which component capture the most information.
 
 ```{r}
 
@@ -165,7 +165,7 @@ pca_fit %>%
   tidy(matrix = "eigenvalues")
 ```
 
-5.2. Creating a PC graph
+Creating a PC graph
 
 As this dataset contains many genes, it was chosen to display the first 10 principal components.
 
